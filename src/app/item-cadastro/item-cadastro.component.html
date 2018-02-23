@@ -1,7 +1,31 @@
-<table>
-  <tr>
-    <th>Etiqueta</th>
-    <th>Descrição</th>
-    <th>Aquisição</th>
-  </tr>
-</table>
+<div class="ui-g">
+  <div class="ui-g-12">
+    Gestão de Patrimônio
+  </div>
+  <div class="ui-g-6 ui-fluid">
+    <label>Etiqueta</label>
+    <p-inputMask name="etiqueta" mask="aa9999"></p-inputMask>
+  </div>
+  <div class="ui-g-6 ui-fluid">
+    <label>Data da Aquisição</label>
+    <p-calendar name="dataArquisicao"></p-calendar>
+  </div>
+  <div class="ui-g-6 ui-fluid">
+    <label>Descrição</label>
+    <input pInputText name="descricao">
+  </div>
+</div>
+<div class="ui-g">
+  <div class="ui-g-12">
+      <p-dataTable [value]="itens">
+          <p-column field="etiqueta" header="Etiqueta"></p-column>
+          <p-column field="descricao" header="Descrição"></p-column>
+          <p-column header="Aquisição">
+            <ng-template pTemplate="body" let-item="rowData">
+              {{item.dataAquisicao | date:'dd/MM/yyyy'}}
+            </ng-template>
+          </p-column>
+        </p-dataTable>
+  </div>
+</div>
+
